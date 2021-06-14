@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="bg"></div>
+      <header>
+        <a href="#" class="logo">Super Cars</a>
+        <div class="toggle"></div>
+        <ul class="navigation">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Menu</a></li>
+          <li><a href="#">What's New</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </header>
+      <div class="content">
+        <div class="textbox">
+          <h2>Drive Fast Everyday</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, sint.
+          </p>
+          <a href="">Drive More!!</a>
+        </div>
+        <div class="imgbox">
+          <img src="images/f1.png" class="cars" />
+        </div>
+      </div>
+
+      <ul class="thumb">
+        <li data-text="Ferrari" class="active">
+          <img
+            src="images/f1.png"
+            onclick="imgSlider('images/f1.png'); changeBgColor('#fc4a55')"
+          />
+        </li>
+        <li data-text="Lamborghini">
+          <img
+            src="images/lambo11.png"
+            onclick="imgSlider('images/lambo11.png'); changeBgColor('#ffcc02')"
+          />
+        </li>
+        <li data-text="BMW">
+          <img
+            src="images/bmw1.png"
+            onclick="imgSlider('images/bmw1.png'); changeBgColor('#0a5ef0')"
+          />
+        </li>
+        <li data-text="Dodge">
+          <img
+            src="images/challenger1.png"
+            onclick="imgSlider('images/challenger1.png'); changeBgColor('#1f1f1f')"
+          />
+        </li>
+      </ul>
+
+      <ul class="sci">
+        <li>
+          <a href=""><img src="images/facebook.png" alt="" /></a>
+        </li>
+        <li>
+          <a href=""><img src="images/twitter.png" alt="" /></a>
+        </li>
+        <li>
+          <a href=""><img src="images/instagram.png" alt="" /></a>
+        </li>
+      </ul>
+    </section>
+
+    <script>
+
+        // click to open navigation bar
+        let menuToggle=document.querySelector('.toggle');
+        let navigation=document.querySelector('.navigation');
+        menuToggle.onclick=function(){
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active')
+        }
+        
+
+      // change image on click
+
+      function imgSlider(anything) {
+        document.querySelector(".cars").src = anything;
+      }
+
+      // change background color
+      function changeBgColor(color) {
+        const bg = document.querySelector(".bg");
+        bg.style.background = color;
+      }
+
+      // add active class in selected thumbnails
+
+      let el = document.querySelectorAll(".thumb li");
+      for (let i = 0; i < el.length; i++) {
+        el[i].onclick = function () {
+          var c = 0;
+          while (c < el.length) {
+            el[c++].className = "check";
+          }
+          el[i].className = "check active";
+        };
+      }
+    </script>
+  </body>
+</html>
